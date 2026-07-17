@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastian & Natalia - Nos Casamos</title>
+<style>
+  body {font-family: 'Georgia', serif; margin:0; background:#fdfcf9; color:#333; text-align:center;}
+  .portada {background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('foto1.jpg') center/cover; color:white; padding:120px 20px;}
+  h1 {font-size:50px; margin:0; letter-spacing:3px;}
+  h2 {font-weight:300; color:#c9a961;}
+  .seccion {padding:60px 20px; max-width:800px; margin:auto;}
+  .contador {font-size:24px; color:#6b7a5a; margin:20px 0;}
+  .boton {background:#c9a961; color:white; padding:15px 30px; text-decoration:none; border-radius:30px; display:inline-block; margin-top:20px;}
+  .galeria img {width:30%; margin:10px; border-radius:10px;}
+</style>
+</head>
+<body>
+
+<div class="portada">
+  <h1>Sebastian & Natalia</h1>
+  <p>¡NOS CASAMOS!</p>
+  <h2>28 DE NOVIEMBRE DE 2026 - 3:00 PM</h2>
+  <div class="contador" id="cuenta"></div>
+</div>
+
+<div class="seccion">
+  <h2>Con la bendición de Dios</h2>
+  <p>Tenemos el honor de invitarte a celebrar el día en que uniremos nuestras vidas</p>
+</div>
+
+<div class="seccion">
+  <h2>Detalles del Evento</h2>
+  <p><b>CEREMONIA</b><br>[Nombre Iglesia]<br>[Dirección] - 3:00 PM</p>
+  <p><b>RECEPCIÓN</b><br>[Nombre Salón]<br>[Dirección]</p>
+  <p><b>DRESS CODE:</b> Elegante</p>
+</div>
+
+<div class="seccion galeria">
+  <h2>Nuestros Momentos</h2>
+  <img src="foto1.jpg" alt="">
+  <img src="foto2.jpg" alt="">
+  <img src="foto3.jpg" alt="">
+</div>
+
+<div class="seccion">
+  <h2>Confirma tu asistencia</h2>
+  <p>Tu presencia es nuestro mejor regalo</p>
+  <a class="boton" href="https://wa.me/[TU_NUMERO]?text=Hola%20confirmo%20asistencia%20para%20el%20matrimonio%20de%20Sebastian%20y%20Natalia">Confirmar por WhatsApp</a>
+</div>
+
+<script>
+// Cuenta regresiva
+const fechaBoda = new Date("Nov 28, 2026 15:00:00").getTime();
+setInterval(function() {
+  let ahora = new Date().getTime();
+  let distancia = fechaBoda - ahora;
+  let dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+  document.getElementById("cuenta").innerHTML = dias + " días para el gran día";
+}, 1000);
+
+// Personalizar con ?fam=Familia+León
+const params = new URLSearchParams(window.location.search);
+const fam = params.get('fam');
+if(fam){ document.querySelector('.seccion p').innerHTML = "Querida " + fam + ", " + document.querySelector('.seccion p').innerHTML }
+</script>
+
+</body>
+</html>
